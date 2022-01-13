@@ -1,0 +1,51 @@
+https://rafaell-lycan.com/2015/construindo-restful-api-laravel-parte-1/
+https://rafaell-lycan.com/2016/construindo-restful-api-laravel-parte-2/
+https://rafaell-lycan.com/2016/construindo-restful-api-laravel-parte-3/
+
+errors
+  https://github.com/tymondesigns/jwt-auth/issues/1038
+
+php -S localhost:8080 -t .\public\
+
+Comanados Models
+  php artisan make:model Clientes
+  php artisan make:model ClientesEnderecos
+  php artisan make:model Vendas
+  php artisan make:model VendasPedidos
+  php artisan make:model VendasStatus
+  php artisan make:model VendasTransacoes
+  php artisan make:model VendasEnderecos
+
+
+Comanados Migrations
+  php artisan make:migration create_clientes_table --create=clientes
+  php artisan make:migration create_clientes_enderecos_table --create=clientes_enderecos
+  php artisan make:migration rename_cliente_id_table --create=clientes_enderecos
+  php artisan make:migration create_vendas_table --create=vendas
+  php artisan make:migration create_vendas_pedidos_table --create=vendas_pedidos
+  php artisan make:migration create_vendas_status_table --create=vendas_status
+  php artisan make:migration create_vendas_transasoes_table --create=vendas_transasoes
+  php artisan make:migration create_vendas_enderecos_table --create=vendas_enderecos
+    php artisan migrate
+    php artisan migrate --database=api_bling2
+    php artisan migrate:rollback
+    php artisan migrate:reset
+
+
+Comanados Seeder
+  php artisan make:seeder ClientesSeeder
+  php artisan make:seeder ClientesEnderecosSeeder
+  php artisan make:seeder VendasSeeder
+  php artisan make:seeder VendasPedidosSeeder
+  php artisan make:seeder VendasEnderecosSeeder
+  php artisan make:seeder VendasTransacoesSeeder
+  php artisan make:seeder VendasStatusSeeder
+    php artisan db:seed
+    php artisan db:seed --class=ClientesSeeder --database=api_bling2
+
+Comanados controller
+  php artisan make:controller ClientesController
+
+
+Comanados request
+  php artisan make:request StoreClientesRequest
