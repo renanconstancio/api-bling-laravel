@@ -1,4 +1,8 @@
 <?php
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -10,15 +14,92 @@
 |
 */
 
-Route::group(array('prefix' => 'api'), function () {
-
+Route::group(['prefix' => '{connection}'], function () {
   Route::get('/', function () {
-    return response()->json(['message' => 'API BLING SERVER', 'status' => 'Connected']);;
+    return response()->json([
+      'message' => 'API BLING SERVER - set connection to web',
+      'status' => 'Connected'
+    ]);
   });
 
-  Route::resource('clientes', 'ClientesController');
+  Route::get('store', 'JWTAuthController@store')->name('store');
+
+  Route::get('login', 'JWTAuthController@login')->name('login');
+  Route::post('login', 'JWTAuthController@login')->name('login');
+
+  Route::get('register', 'JWTAuthController@register')->name('register');
+  Route::post('register', 'JWTAuthController@register')->name('register');
 
 
-  // Route::get('auth/login', 'AuthController@authenticate');
-  Route::post('auth/login', 'AuthController@authenticate');
+  // Route::get('store', function () {
+  //   return response()->json([
+  //     'message' => 'API BLING SERVER - set connection to web',
+  //     'status' => 'Connected'
+  //   ]);
+  // });
 });
+
+Route::get('/', function () {
+  return response()->json([
+    'message' => 'API BLING SERVER - set connection to web',
+    'status' => 'Connected'
+  ]);
+});
+
+
+// Route::group('/{connection}', function ($connection) {
+//   Route::get('/store', 'JWTAuthController@store')->name('store');
+//   return response()->json([
+//     'message' => 'API BLING SERVER',
+//     'status' => 'Connected'
+//   ]);
+// });
+
+
+// Route::get('/{connection}', function ($connection) {
+//   Route::get('/store', 'JWTAuthController@store')->name('store');
+//   return response()->json([
+//     'message' => 'API BLING SERVER',
+//     'status' => 'Connected'
+//   ]);
+// });
+
+// Route::group([
+//   'middleware' => 'api',
+//   'prefix' => 'auth'
+// ], function () {
+
+//   Route::post('register', 'JWTAuthController@register')->name('register');
+
+//   Route::get('login', 'JWTAuthController@login')->name('login');
+//   Route::post('login', 'JWTAuthController@login')->name('login');
+
+//   Route::post('logout', 'JWTAuthController@logout')->name('logout');
+//   Route::post('refresh', 'JWTAuthController@refresh')->name('refresh');
+
+//   Route::get('profile', 'JWTAuthController@profile')->name('profile');
+//   Route::get('store', 'JWTAuthController@store')->name('store');
+
+//   Route::get('/', function () {
+//     return response()->json(['message' => 'API BLING SERVER', 'status' => 'Connected']);;
+//   });
+// });
+
+// Route::group([
+//   'middleware' => 'api',
+//   'prefix' => 'produtos'
+// ], function ($router) {
+
+//   // Route::post('register', 'JWTAuthController@register');
+//   // Route::post('login', 'JWTAuthController@login');
+//   // Route::post('logout', 'JWTAuthController@logout');
+//   // Route::post('refresh', 'JWTAuthController@refresh');
+//   // Route::get('profile', 'JWTAuthController@profile');
+
+//   Route::get('/', function () {
+//     return 'sdfasdf';
+//   });
+// });
+// Route::get('/', function () {
+//   return 'sdfasdf';
+// });

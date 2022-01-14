@@ -93,7 +93,7 @@ return [
     |
     */
 
-  'fallback_locale' => 'pt_BR',
+  'fallback_locale' => 'pt',
 
   /*
     |--------------------------------------------------------------------------
@@ -106,7 +106,7 @@ return [
     |
     */
 
-  'faker_locale' => 'en_US',
+  'faker_locale' => 'pt_BR',
 
   /*
     |--------------------------------------------------------------------------
@@ -175,7 +175,7 @@ return [
     App\Providers\EventServiceProvider::class,
     App\Providers\RouteServiceProvider::class,
 
-    Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+    Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
   ],
 
@@ -229,7 +229,8 @@ return [
     'View' => Illuminate\Support\Facades\View::class,
 
     'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
-    'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+    'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class
+
   ],
 
 ];

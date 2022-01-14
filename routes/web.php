@@ -11,24 +11,7 @@
 |
 */
 
-// Route::get('/', function () {
-//   return view('welcome');
-// });
-
-Route::group(array('prefix' => 'api'), function () {
-
-  Route::get('/', function () {
-    return response()->json(['message' => 'API BLING SERVER', 'status' => 'Connected']);;
-  });
-
-  Route::resource('clientes', 'ClientesController');
-
-
-  Route::get('auth/login', 'AuthController@authenticate');
-
-  Route::post('auth/login', 'AuthController@authenticate');
-});
-
 Route::get('/', function () {
-  return redirect('api');
+  return redirect('api/');
+  // return view('welcome');
 });

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientesEnderecosRenameClienteIdTable extends Migration
+class CreateUsuariosResetsTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,8 +13,10 @@ class CreateClientesEnderecosRenameClienteIdTable extends Migration
    */
   public function up()
   {
-    Schema::create('clientes_enderecos', function (Blueprint $table) {
-      $table->renameColumn('clientes_id', 'cliente_id');
+    Schema::create('usuarios_resets', function (Blueprint $table) {
+      $table->string('email', 85)->index();
+      $table->string('token');
+      $table->timestamp('created_at')->nullable();
     });
   }
 
@@ -25,6 +27,6 @@ class CreateClientesEnderecosRenameClienteIdTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('clientes_enderecos');
+    Schema::dropIfExists('usuarios_resets');
   }
 }

@@ -3,6 +3,7 @@ https://rafaell-lycan.com/2016/construindo-restful-api-laravel-parte-2/
 https://rafaell-lycan.com/2016/construindo-restful-api-laravel-parte-3/
 
 errors
+  https://stackoverflow.com/questions/34315400/laravel-api-connecting-to-multiple-databases
   https://github.com/tymondesigns/jwt-auth/issues/1038
 
 php -S localhost:8080 -t .\public\
@@ -21,11 +22,18 @@ Comanados Migrations
   php artisan make:migration create_clientes_table --create=clientes
   php artisan make:migration create_clientes_enderecos_table --create=clientes_enderecos
   php artisan make:migration rename_cliente_id_table --create=clientes_enderecos
+
+  php artisan make:migration create_categorias_table --create=categorias
+
+  php artisan make:migration create_produtos_table --create=produtos
+  php artisan make:migration create_produtos_grade_table --create=produtos_grade
+
   php artisan make:migration create_vendas_table --create=vendas
   php artisan make:migration create_vendas_pedidos_table --create=vendas_pedidos
   php artisan make:migration create_vendas_status_table --create=vendas_status
   php artisan make:migration create_vendas_transasoes_table --create=vendas_transasoes
   php artisan make:migration create_vendas_enderecos_table --create=vendas_enderecos
+
     php artisan migrate
     php artisan migrate --database=api_bling2
     php artisan migrate:rollback

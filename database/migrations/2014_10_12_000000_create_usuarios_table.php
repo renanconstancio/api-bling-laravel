@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientesTable extends Migration
+class CreateUsuariosTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,18 +13,16 @@ class CreateClientesTable extends Migration
    */
   public function up()
   {
-    Schema::create('clientes', function (Blueprint $table) {
+    Schema::create('usuarios', function (Blueprint $table) {
       $table->increments('id');
 
-      $table->string('email', 60)->unique();
-      $table->boolean('email_cofirm')->nullable();
-
+      $table->string('email', 85)->unique();
+      $table->timestamp('email_verified_at')->nullable();
       $table->string('senha', 65);
-      $table->string('senha_reset', 65)->nullable();
+      $table->rememberToken();
 
       $table->string('nome', 80);
       $table->string('fantasia', 100);
-
       $table->string('cnpj_cpf', 18);
       $table->string('ie_rg', 18);
 
@@ -43,6 +41,8 @@ class CreateClientesTable extends Migration
       // J	Pessoa Jurídica
       // E	Estrangeiro
       $table->enum('tipo_pessoa', ['F', 'J', 'E']);
+
+
       $table->timestamps();
       $table->softDeletes();
     });
@@ -55,6 +55,6 @@ class CreateClientesTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('clientes');
+    Schema::dropIfExists('usuarios');
   }
 }
