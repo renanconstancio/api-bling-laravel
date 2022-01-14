@@ -31,6 +31,9 @@ Route::group(['prefix' => '{connection}'], function () {
   Route::post('register', 'JWTAuthController@register')->name('register');
 
 
+  Route::resource('produtos', 'ProdutosController');
+
+
   // Route::get('store', function () {
   //   return response()->json([
   //     'message' => 'API BLING SERVER - set connection to web',
