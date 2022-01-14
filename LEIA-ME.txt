@@ -8,6 +8,20 @@ errors
 
 php -S localhost:8080 -t .\public\
 
+Comanados
+  php artisan make:model Todo -mcs
+  php artisan make:model Produtos -mcr
+
+  Other Options
+    -c, --controller Create a new controller for the model
+    -f, --factory Create a new factory for the model
+    --force Create the class even if the model already exists
+    -m, --migration Create a new migration file for the model
+    -s, --seed Create a new seeder file for the model
+    -p, --pivot Indicates if the generated model should be a custom intermediate table model
+    -r, --resource Indicates if the generated controller should be a resource controller
+
+
 Comanados Models
   php artisan make:model Clientes
   php artisan make:model ClientesEnderecos
