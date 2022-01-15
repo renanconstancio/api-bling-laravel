@@ -47,9 +47,9 @@ class Handler extends ExceptionHandler
    */
   public function render($request, Exception $exception)
   {
-    // return $request->expectsJson()
-    //   ? response()->json(['msg' => $exception->getMessage()], 401)
-    //   : response()->json(['error' => 'not found'], 400);
+    return $request->expectsJson()
+      ? response()->json(['msg' => $exception->getMessage()], 401)
+      : response()->json(['error' => 'not found'], 400);
 
     return parent::render($request, $exception);
   }

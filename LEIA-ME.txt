@@ -10,7 +10,10 @@ php -S localhost:8080 -t .\public\
 
 Comanados
   php artisan make:model Todo -mcs
+  php artisan make:model Variacoes -mcr
   php artisan make:model Produtos -mcr
+  php artisan make:model Clientes -mcr
+  php artisan make:model ClientesEnderecos -mcr
 
   Other Options
     -c, --controller Create a new controller for the model
@@ -23,13 +26,7 @@ Comanados
 
 
 Comanados Models
-  php artisan make:model Clientes
-  php artisan make:model ClientesEnderecos
   php artisan make:model Vendas
-  php artisan make:model VendasPedidos
-  php artisan make:model VendasStatus
-  php artisan make:model VendasTransacoes
-  php artisan make:model VendasEnderecos
 
 
 Comanados Migrations
@@ -39,7 +36,9 @@ Comanados Migrations
 
   php artisan make:migration create_categorias_table --create=categorias
 
+  php artisan make:migration create_grade_table --create=grade
   php artisan make:migration create_produtos_table --create=produtos
+  php artisan make:migration create_produtos_variacao_table --create=produtos
   php artisan make:migration create_produtos_grade_table --create=produtos_grade
 
   php artisan make:migration create_vendas_table --create=vendas
@@ -64,6 +63,7 @@ Comanados Seeder
   php artisan make:seeder VendasStatusSeeder
     php artisan db:seed
     php artisan db:seed --class=ClientesSeeder --database=api_bling2
+    php artisan db:seed --class=ClientesSeeder --database=superenxovais
 
 Comanados controller
   php artisan make:controller ClientesController

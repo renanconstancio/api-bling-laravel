@@ -31,6 +31,8 @@ Route::group(['prefix' => '{connection}'], function () {
   Route::post('register', 'JWTAuthController@register')->name('register');
 
 
+  Route::resource('variacoes', 'VariacoesController');
+
   Route::resource('produtos', 'ProdutosController');
 
 
