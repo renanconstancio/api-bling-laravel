@@ -29,11 +29,28 @@ class BlingController extends Controller
 
       if (!isset($rws['produto']['codigoPai'])) {
         $a = $rws['produto']['descricao'];
-        echo '<br>';
+        // echo '<br>';
       }
 
       if (isset($rws['produto']['codigoPai'])) {
-        $data[] = $rws['produto'];
+        $explode = explode(' ', $rws['produto']['descricao']);
+
+        $explode_variacoes = $explode[sizeof($explode) - 1];
+
+        $variacoes = preg_split("/[\\:\\;]+/", $explode_variacoes);
+
+        $temp[$variacoes[0]] = [
+          'nome' => $variacoes[3],
+          'codigo' => '',
+          'estoque' => (int)$rws['produto']['estoqueAtual'],
+        ];
+
+        $data[$variacoes[0]][] = [
+          'nome' => $variacoes[1],
+          'codigo' => '',
+          'estoque' => (int)$rws['produto']['estoqueAtual'],
+          $variacoes[2] => $temp[$variacoes[0]]
+        ];
       }
 
       // $variacoes_explode = explode(' ', strstr($rws['produto']['descricao'], ':', true));
