@@ -13,7 +13,7 @@ Comanados
   php artisan make:model Variacoes -mcr
   php artisan make:model Produtos -mcr
   php artisan make:model Clientes -mcr
-  php artisan make:model ClientesEnderecos -mcr
+  php artisan make:model ProdutosSkus -mcr
 
   Other Options
     -c, --controller Create a new controller for the model

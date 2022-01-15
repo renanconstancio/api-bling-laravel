@@ -49,7 +49,7 @@ class Handler extends ExceptionHandler
   {
     return $request->expectsJson()
       ? response()->json(['msg' => $exception->getMessage()], 401)
-      : response()->json(['error' => 'not found'], 400);
+      : response()->json(['error' => $exception->getMessage(), 'code' => $exception->getCode()], 400);
 
     return parent::render($request, $exception);
   }
